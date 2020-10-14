@@ -12,6 +12,9 @@ var pagesize = 10;
 var count = 0;
 var issues = [];
 var sort = "ORDER BY updated DESC";
+var httpPage = 1;
+var responseLength = 0;
+var currentLength = -1;
 
 $(document).ready(function() {
 
@@ -48,7 +51,10 @@ $(document).ready(function() {
     //removes previous data that is in the database, then inserts new data
     db.run("DELETE FROM issues", function() {
       count = 0;
-      HttpRequest(org, rep);
+      //while (response.length % 100 == 0 && currentLength != 0) {
+        HttpRequest(org, rep);
+        httpPage++;
+      //}
       document.getElementById("form").reset();
       $("form").hide();
       $("#newRequest").show();
@@ -125,8 +131,10 @@ var HttpClient = function() {
 //uses the JSON response from the GET request to add elements to the SQLite database and updates the page with the new information
 function HttpRequest(org, rep) {
   var client = new HttpClient();
-  var httpPage = 1;
+
   client.get('https://api.github.com/repos/' + org + '/' + rep + '/issues?per_page=100&page=' + httpPage, function(response) {
+    currentLength = response.length;
+    responseLength += response.length;
     console.log(response.length)
     response.forEach(function(element, index) {
       count++;
@@ -135,13 +143,11 @@ function HttpRequest(org, rep) {
       stmt.finalize();
     });
     page = 1;
-    getPage();
-    // while (response.length == 100) {
-    //   HttpRequest(org, rep);
-    // }
-    // if (response.length < 100) {
-    //   getPage();
-    // }
+    //getPage();
+
+    //if (response.length < 100) {
+      getPage();
+    //}
   });
 }
 

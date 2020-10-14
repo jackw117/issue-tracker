@@ -27,7 +27,8 @@
     "moment": "^2.27.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "sqlite3": "^5.0.0"
+    "sqlite3": "^5.0.0",
+    "overlayscrollbars": "^1.13.0"
   },
   "devDependencies": {
     "electron": "^9.3.1",

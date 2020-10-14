@@ -15,7 +15,6 @@ p {
 }
 
 #main {
-  height: calc(100% - 32px);
   max-height: 868px;
   padding: 20px;
   overflow-y: auto;
@@ -148,6 +147,7 @@ h3#page {
 div#navigation {
     position: absolute;
     left: 42%;
+    margin-bottom:30px;
 }
 
 /* TODO
