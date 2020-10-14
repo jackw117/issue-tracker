@@ -53,6 +53,7 @@ $(document).ready(function() {
     db.run("DELETE FROM issues", function() {
       count = 0;
       //start newRequest
+      $("progress").css('display', 'block'); // display loadingbar
       HttpRequest(org, rep);
       document.getElementById("form").reset();
       $("form").hide();
@@ -168,6 +169,7 @@ function getPage() {
       issues.push(e(Issue, {title: element.title, key: element.id, state: element.state, id: element.id}, null));
     });
 
+    $("progress").css('display', 'none'); // hide loadingbar
     renderPage();
 
     //determines when to show/hide the next and previous buttons
