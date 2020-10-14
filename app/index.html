@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="functions.js"></script>
+
+  </head>
+  <body>
+    <form>
+      <label for="organization">Type in your organization's name: </label>
+      <input id="organization" type="text" required>
+      <label for="repo">Type in the repo name: </label>
+      <input id="repo" type="text" required>
+      <button id="submit">Submit</button>
+    </form>
+    <div id="result"></div>
+    <div id="overlay"></div>
+    <input id="prev" type="button" value="Previous page">
+    <input id="next" type="button" value="Next page">
+    <h3 id="page"></h3>
+  </body>
+</html>

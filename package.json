@@ -1,0 +1,34 @@
+{
+  "name": "walmart",
+  "productName": "Walmart Interview Question",
+  "description": "Application designed to be display GitHub issues",
+  "version": "0.0.1",
+  "author": "Jack Whitesell <me@jackwhitesell.com>",
+  "homepage": "http://jackwhitesell.com",
+  "license": "MIT",
+  "main": "app/app.js",
+  "build": {
+    "appId": "com.example.walmart",
+    "files": [
+      "app/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ]
+  },
+  "scripts": {
+    "postinstall": "install-app-deps",
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "build"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "jquery": "^3.5.1",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "electron": "^9.3.1",
+    "electron-builder": "^22.8.0"
+  }
+}
