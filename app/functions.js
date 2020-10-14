@@ -46,15 +46,14 @@ $(document).ready(function() {
   //makes an http request with the given user input from the form element
   $("form").submit(function(event) {
     event.preventDefault();
+    httpPage = 1;
     org = $("#organization").val();
     rep = $("#repo").val();
     //removes previous data that is in the database, then inserts new data
     db.run("DELETE FROM issues", function() {
       count = 0;
-      //while (response.length % 100 == 0 && currentLength != 0) {
-        HttpRequest(org, rep);
-        httpPage++;
-      //}
+      //start newRequest
+      HttpRequest(org, rep);
       document.getElementById("form").reset();
       $("form").hide();
       $("#newRequest").show();
@@ -142,12 +141,15 @@ function HttpRequest(org, rep) {
       stmt.run(element.id, element.title, element.state, element.user.login, element.user.avatar_url, element.created_at, element.updated_at, element.body);
       stmt.finalize();
     });
-    page = 1;
-    //getPage();
 
-    //if (response.length < 100) {
+    httpPage++;
+    if (response.length == 100) {
+      HttpRequest(org, rep);
+    } else {
+      //request complete
       getPage();
-    //}
+    }
+    page = 1;
   });
 }
 
