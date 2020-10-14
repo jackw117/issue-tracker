@@ -1,28 +1,160 @@
+html {
+  background-color: #fafafa!important;
+}
+
+body {
+  overflow-y: hidden;
+}
+
+p {
+  overflow-wrap: break-word;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#main {
+  height: calc(100% - 32px);
+  max-height: 868px;
+  padding: 20px;
+  overflow-y: auto;
+}
+
 form input, form button {
   display: block;
 }
 
+h3.state {
+    text-transform: uppercase;
+    background-color: #FFB81C;
+    width: fit-content;
+    color: white;
+    font-weight: bold;
+    font-size: 11px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 7px 0;
+}
+
 #avatar {
-  max-height: 50px;
+    max-height: 50px;
+    margin-top: -50px;
+    float: right;
+    border-radius: 100%;
+    border: 2px solid white;
+    box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.5);
+}
+
+#formDiv form {
+  display: none;
+  width: 30%;
+  margin-left: 35%;
+}
+
+#pagesize {
+  display: none;
 }
 
 #prev, #next {
   display: none;
+  font-size:11px;
+  display:inline;
+}
+
+#newRequest {
+  width: 30%;
+  margin-left: 35%;
 }
 
 #overlay {
-  position: fixed; /* Sit on top of the page content */
-  display: none; /* Hidden by default */
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.8); /* Black background with opacity */
-  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  background-color: rgba(0,0,0,0.8);
+  z-index: 2;
 }
 
-.issue, .detail {
-  background-color: gray;
+#overlayCard {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
 }
+
+.issue {
+  background-color: #FFF;
+  border-radius: 7px;
+  box-shadow: 0px 10px 35px -15px rgba(0,0,0,0.5);
+  padding: 25px;
+  margin: 50px 25px;
+}
+
+.detail {
+  background-color: #FFF;
+  border-radius: 7px;
+  box-shadow: 0px 10px 45px 0px rgba(0,0,0,1);
+  padding: 25px;
+  margin: 25px 25px;
+}
+
+.detail .body {
+    font-size: 10pt;
+    margin-top: 25px;
+}
+
+h3.owner {
+    margin: 10px 0;
+    font-style: italic;
+}
+
+.idDiv {
+  font-weight: bold;
+}
+
+input#cancel {
+  position: absolute;
+  top: 35px;
+  right: 35px;
+  height: 25px;
+  width: 25px;
+  border-radius: 100%;
+  border: none;
+  background-color: #fff;
+  color: #0072CE;
+  box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.3);
+}
+
+input#cancel:focus {
+  outline:none;
+}
+
+#header {
+    text-align: center;
+    font-size: 30px;
+    padding: 30px 0px;
+}
+
+h3#page {
+    display: inline;
+}
+
+div#navigation {
+    position: absolute;
+    left: 42%;
+}
+
+/* TODO
+Color open, closed, etc
+Move back up to top when clicking button
+Center make request
+Add close to make request
+Center pagination
+sorting
+*/

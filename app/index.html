@@ -2,22 +2,40 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="../node_modules/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="../node_modules/overlayscrollbars/css/OverlayScrollbars.min.css">
+    <script src="../node_modules/overlayscrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <script src="functions.js"></script>
-
   </head>
   <body>
-    <form>
-      <label for="organization">Type in your organization's name: </label>
-      <input id="organization" type="text" required>
-      <label for="repo">Type in the repo name: </label>
-      <input id="repo" type="text" required>
-      <button id="submit">Submit</button>
-    </form>
-    <div id="result"></div>
-    <div id="overlay"></div>
-    <input id="prev" type="button" value="Previous page">
-    <input id="next" type="button" value="Next page">
-    <h3 id="page"></h3>
+    <div id="main">
+      <h1 id="header">GitHub Issue Tracker</h1>
+      <div id="formDiv">
+        <form id="form">
+          <label for="organization">Type in your organization's name: </label>
+          <input id="organization" class="input is-success" type="text" value="walmartlabs" required>
+          <label for="repo">Type in the repo name: </label>
+          <input id="repo" class="input is-success" type="text" value="thorax" required>
+          <button id="submit" class="button is-primary">Submit</button>
+        </form>
+        <input id="newRequest" type="button" class="button is-warning" value="Make a new request">
+      </div>
+
+      <label for="sorting">Sorting by: </label>
+      <select id="sorting">
+        <option value="date">date</option>
+        <option value="owner">owner</option>
+      </select>
+      <div id="result"></div>
+      <div id="overlay"></div>
+      <div id="overlayCard"></div>
+      <div id="navigation">
+        <input id="prev" class="button is-warning" type="button" value="⮜">
+        <h3 id="page"></h3>
+        <input id="next" class="button is-warning" type="button" value="⮞">
+      </div>
+    </div>
   </body>
 </html>

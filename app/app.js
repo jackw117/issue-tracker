@@ -1,10 +1,7 @@
 const electron = require('electron');
-
 const app = electron.app;
-
 var BrowserWindow = electron.BrowserWindow;
 
-//const mainWindow;
 
 app.on('window-all-closed', function () {
   app.quit();
@@ -15,11 +12,13 @@ app.on('window-all-closed', function () {
 app.on('ready', function () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1200,
+    width: 750,
     height: 900,
+    transparent: true,
+    autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,
-      enableRemoteModule: false
+      enableRemoteModule: false,
     }
   });
 
@@ -27,7 +26,7 @@ app.on('ready', function () {
   mainWindow.loadURL('file://' + __dirname + '/index.html');
 
   // starts with dev tools open
-  mainWindow.webContents.openDevTools();
+  //mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
